@@ -4,22 +4,21 @@ declare(strict_types=1);
 
 namespace App\GraphQL\Queries\User;
 
-use Closure;
-use GraphQL\Type\Definition\ResolveInfo;
+use App\Models\User;
 use GraphQL\Type\Definition\Type;
+use Rebing\GraphQL\Support\Facades\GraphQL;
 use Rebing\GraphQL\Support\Query;
-use Rebing\GraphQL\Support\SelectFields;
 
 class UserList extends Query
 {
     protected $attributes = [
         'name' => 'UserList',
-        'description' => 'A query'
+        'description' => 'A query',
     ];
 
     public function type(): Type
     {
-        return Type::listOf(Type::string());
+        return Type::listOf(GraphQL::type('UserType'));
     }
 
     public function args(): array
@@ -29,15 +28,9 @@ class UserList extends Query
         ];
     }
 
-    public function resolve($root, array $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields)
+    public function resolve($root, array $args)
     {
-        /** @var SelectFields $fields */
-        $fields = $getSelectFields();
-        $select = $fields->getSelect();
-        $with = $fields->getRelations();
 
-        return [
-            'The user/UserList works',
-        ];
+        return User::all();
     }
 }
