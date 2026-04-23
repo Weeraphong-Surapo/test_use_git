@@ -6,7 +6,7 @@ class SchemaRegistry
     public static function queries(): array
     {
         return [
-            // \App\GraphQL\Queries\User\UserList::class,
+            \App\GraphQL\Queries\User\UserList::class,
         ];
     }
 
