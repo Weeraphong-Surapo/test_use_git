@@ -18,8 +18,14 @@ class UserInput extends InputType
     public function fields(): array
     {
         return [
-            'id' => [
-                'type' => Type::int(),
+            'name' => [
+                'type' => Type::string(),
+            ],
+            'email' => [
+                'type' => Type::string(),
+            ],
+            'password' => [
+                'type' => Type::string(),
             ],
         ];
     }

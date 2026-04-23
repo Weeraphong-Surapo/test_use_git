@@ -13,7 +13,7 @@ class SchemaRegistry
     public static function mutations(): array
     {
         return [
-            // \App\GraphQL\Mutations\User\CreateUserMutation::class,
+            \App\GraphQL\Mutations\User\CreateUser::class,
         ];
     }
 
