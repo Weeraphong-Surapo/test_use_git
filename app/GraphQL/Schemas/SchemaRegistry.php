@@ -20,7 +20,9 @@ class SchemaRegistry
     public static function types(): array
     {
         return [
-            // \App\GraphQL\Types\User\UserType::class,
+            \App\GraphQL\Types\User\UserType::class,
+            \App\GraphQL\Inputs\User\UserInput::class,
+            
         ];
     }
 }
